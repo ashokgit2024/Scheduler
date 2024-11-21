@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="schedulerFlow" doc:id="20bcfe98-941f-4258-a018-5d7916878218" >
+		<scheduler doc:name="Scheduler" doc:id="bfdcacff-7163-4d48-8a76-da1eafb2c331" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="5" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<logger level="INFO" doc:name="Logger" doc:id="4286667a-7bab-4f50-9492-458f80cf7be7" message='#["current DateandTime in INDIA is " : (now() &gt;&gt; "IST") as LocalDateTime{format: "yyyy-MMMM-dd hh:mm:ss"}]'/>
+	</flow>
+</mule>
